@@ -184,7 +184,8 @@ const navLinks = ref([
       { href: '#forecast', label: 'Nusawave Forecast' },
     ],
   },
-  { href: '#contact', label: 'Contact' },
+  { href: '#blog', label: 'Blog' },
+  // { href: '#contact', label: 'Contact' },
 ])
 
 const isMenuOpen = ref(false)
