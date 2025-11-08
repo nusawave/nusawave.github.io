@@ -1,0 +1,58 @@
+<template>
+    <header class="relative overflow-hidden bg-gradient-to-b from-blue-900/10 via-white/60 to-white/80 pt-20 pb-16 sm:pt-32 sm:pb-24" id="home">
+        <article class="max-w-screen-xl mx-auto px-4 sm:px-8 py-16 flex flex-col-reverse
+        lg:flex-row items-center gap-10 lg:gap-20">
+        <!-- Hero Content -->
+        <section class="w-full lg:w-1/2 text-center lg:text-left">
+            <hgroup data-aos="fade-up" data-aos-delay="500">
+                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 mb-4">
+                    Empowering Decisions with <span class="text-blue-900">Data-Driven Insights</span>
+                </h1>
+                <p class="text-gray-700 text-lg sm:text-xl mb-6">
+                    Unlock the power of data with Nusawave Intelligence - your trusted partner for comprehensive MetOcean analytics and insights.
+                </p>
+            </hgroup>
+            <nav data-aos="fade-up" data-aos-delay="400"
+            class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 mb-12">
+            <a
+                href="#inquiry"
+                class="bg-blue-900 text-white px-8 py-3 rounded-full tansition shadow-lg">
+                Book a Consultation
+            </a>
+            <a href="#services"
+                class="border border-blue-800 text-blue-900 hover:bg-blue-50
+                text-center px-8 py-3 rounded-full transition" aria-label="Explore our services">
+                Explore our Services
+            </a>
+            </nav>
+            <!-- Stats Section -->
+             <aside data-aos="fade-up" data-aos-delay="600" class="py-4">
+                <ul class="flex flex-wrap justify-center lg:justify-start gap-x-6 gap-y-4 text-center">
+                    <li v-for="(stat, index) in stats" :key="index">
+                        <strong class="text-2xl font-bold text-blue-900">{{ stat.value }}</strong>
+                        <small class="block text-gray-600">{{ stat.label }}</small>
+                    </li>
+                </ul>
+             </aside>
+        </section>
+        <!-- Hero Image -->
+        <figure data-aos="fade-up" data-aos-delay="700" class="w-full lg:w-1/2 flex justify-center relative">
+            <div class="relative w-full max-w-xs sm:max-w-sm md:max-w-md">
+                <span class="bg-blue-500 rounded w-64 g-64 sm:w-110 sm:h-80 absolute -top-10 -left-10
+                opacity-20" aria-hidden="true"></span>
+                <img src="@assets/nusawave-landing-dummy.png" alt="Hero Image"
+                class="relative z-10 rounded shadow-2xl w-full object-cover"
+                width="600" height="400" loading="eager"/>
+            </div>
+        </figure>
+        </article>
+    </header>
+</template>
+<script setup>
+import { ref } from 'vue';
+const stats = ref([
+    { label: 'Projects Completed', value: '5+' },
+    { label: 'Clients', value: '3+' },
+    { label: 'Years of Experience', value: '1+' },
+]);
+</script>
