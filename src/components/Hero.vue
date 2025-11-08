@@ -9,7 +9,7 @@
                     Empowering Decisions with <span class="text-blue-900">Data-Driven Insights</span>
                 </h1>
                 <p class="text-gray-700 text-lg sm:text-xl mb-6">
-                    Unlock the power of data with Nusawave Intelligence - your trusted partner for comprehensive MetOcean analytics and insights.
+                    Bringing value to safe, optimized, and efficient operations for risky maritime and offshore activities.
                 </p>
             </hgroup>
             <nav data-aos="fade-up" data-aos-delay="400"
@@ -26,7 +26,7 @@
             </a>
             </nav>
             <!-- Stats Section -->
-             <aside data-aos="fade-up" data-aos-delay="600" class="py-4">
+             <aside data-aos="fade-up" data-aos-delay="200" class="py-4">
                 <ul class="flex flex-wrap justify-center lg:justify-start gap-x-6 gap-y-4 text-center">
                     <li v-for="(stat, index) in stats" :key="index">
                         <strong class="text-2xl font-bold text-blue-900">{{ stat.value }}</strong>
