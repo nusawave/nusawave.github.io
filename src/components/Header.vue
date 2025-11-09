@@ -66,19 +66,19 @@
       </nav>
 
       <!-- Inquiry button (Desktop) -->
-      <!-- <div class="hidden md:block">
+      <div class="hidden md:block">
         <a
-          href="#inquiry"
-          class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors duration-200 
-                 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 cursor-pointer"
+          href="#contact"
+          class="bg-blue-900 text-white px-4 py-2 rounded-full hover:bg-blue-900 transition-colors duration-200 
+                 focus:outline-none focus:ring-2 focus:ring-blue-900 focus:ring-offset-2 cursor-pointer"
         >
           Inquiry
         </a>
-      </div> -->
+      </div>
 
       <!-- Mobile Menu Button -->
       <button
-        class="md:hidden p-2 focus:outline-none focus:ring-2 focus:ring-blue-600 rounded"
+        class="md:hidden p-2 focus:outline-none focus:ring-2 focus:ring-blue-900 rounded-full"
         @click="toggleMenu"
         aria-label="Toggle menu"
         :aria-expanded="isMenuOpen.toString()"
@@ -147,9 +147,9 @@
 
           <li>
             <a
-              href="#inquiry"
-              class="block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors duration-200 
-                     focus:outline-none focus:ring-2 focus:ring-blue-600 cursor-pointer"
+              href="#contact"
+              class="block bg-blue-900 text-white px-4 py-2 rounded-full hover:bg-blue-900 transition-colors duration-200 
+                     focus:outline-none focus:ring-2 focus:ring-blue-900 cursor-pointer"
               @click="isMenuOpen = false"
             >
               Inquiry
@@ -172,8 +172,10 @@ const navLinks = ref([
     href: '#services',
     label: 'Services',
     children: [
-      { href: '#academy', label: 'Nusawave Academy' },
-      { href: '#data-intelligence', label: 'Data Intelligence' },
+      { href: "#services", label: 'Sea State Monitoring', value: 'sea-state-monitoring' },
+      { href: "#services", label: 'Predictive Analytics', value: 'predictive-analytics-offshore-operations' },
+      { href: "#services", label: 'Custom Data Solutions', value: 'custom-data-solutions' },
+      { href: "#services", label: 'Nusawave Academy', value: 'nusawave-academy' },
     ],
   },
   {
@@ -185,7 +187,7 @@ const navLinks = ref([
     ],
   },
   { href: '#blog', label: 'Blog' },
-  { href: '#contact', label: 'Contact' },
+  { href: '#get-in-touch', label: 'Contact' },
 ])
 
 const isMenuOpen = ref(false)

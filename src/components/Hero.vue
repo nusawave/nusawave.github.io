@@ -1,5 +1,5 @@
 <template>
-    <header class="relative overflow-hidden bg-gradient-to-b from-blue-900/10 via-white/60 to-white/80 pt-20 pb-16 sm:pt-32 sm:pb-24" id="home">
+    <header class="relative overflow-hidden bg-gradient-to-b from-blue-400/10 via-white/80 to-white/80 pt-20 sm:pt-32 sm:pb-24" id="home">
         <article class="max-w-screen-xl mx-auto px-4 sm:px-8 py-16 flex flex-col-reverse
         lg:flex-row items-center gap-10 lg:gap-20">
         <!-- Hero Content -->
@@ -15,9 +15,9 @@
             <nav data-aos="fade-up" data-aos-delay="400"
             class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 mb-12">
             <a
-                href="#inquiry"
+                href="#contact"
                 class="bg-blue-900 text-white px-8 py-3 rounded-full tansition shadow-lg">
-                Book a Consultation
+                Consult with Us
             </a>
             <a href="#services"
                 class="border border-blue-800 text-blue-900 hover:bg-blue-50

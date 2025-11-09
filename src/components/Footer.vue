@@ -45,6 +45,7 @@
                     class="text-xl font-bold mb-6 relative pb-2 
                         after:content-[''] after:absolute after:left-0 
                         after:bottom-0 after:w-12 after:h-1 after:bg-blue-900"
+                    id="get-in-touch"
                 >
                     Contact Us
                 </h3>
@@ -77,7 +78,7 @@
             <div class="flex flex-col lg:flex-row items-center justify-between">
                 <div class="mb-6 lg:mb-0 lg:mr-8">
                 <h3 id="newsletter-heading" class="text-xl font-bold mb-2 text-white">
-                    Subscribe to Our Newsletter
+                    Subscribe to Our Blog
                 </h3>
                 <p class="text-gray-400">Get updates on forecasts, analytics, and digital ocean insights.</p>
                 </div>
@@ -127,10 +128,10 @@
 import { ref, computed } from 'vue';
 const currentYear= computed(() => new Date().getFullYear());
 const socialLinks = ref([
-    { label: 'Facebook', href: '#', icon: 'fa-brands:facebook-f' },
-    { label: 'Twitter', href: '#', icon: 'fa-brands:twitter' },
+    // { label: 'Facebook', href: '#', icon: 'fa-brands:facebook-f' },
+    // { label: 'Twitter', href: '#', icon: 'fa-brands:twitter' },
     { label: 'Instagram', href: '#', icon: 'fa-brands:instagram' },
-    { label: 'LinkedIn', href: '#', icon: 'fa-brands:linkedin-in' },
+    { label: 'LinkedIn', href: 'https://linkedin.com/company/nusawave', icon: 'fa-brands:linkedin-in' },
     { label: 'YouTube', href: '#', icon: 'fa-brands:youtube' },
 ]);
 const quickLinks = ref([
