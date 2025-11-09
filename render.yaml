@@ -1,0 +1,33 @@
+services:
+  # ===========================================
+  # 🟦 BACKEND (Rust + Actix)
+  # ===========================================
+  - type: web
+    name: nusawave-backend
+    env: rust
+    rootDir: backend
+    buildCommand: cargo build --release
+    startCommand: ./target/release/nusawave-backend
+    plan: free
+    autoDeploy: true
+    envVars:
+      - key: RUST_LOG
+        value: info
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: TELEGRAM_CHAT_ID
+        sync: false
+
+  # ===========================================
+  # 🟩 FRONTEND (Vue + Vite)
+  # ===========================================
+  - type: static
+    name: nusawave-frontend
+    env: static
+    buildCommand: npm install && npm run build
+    publishDirectory: dist
+    plan: free
+    autoDeploy: true
+    envVars:
+      - key: VITE_API_URL
+        value: https://nusawave-backend.onrender.com
