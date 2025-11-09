@@ -29,4 +29,4 @@ services:
     autoDeploy: true
     envVars:
       - key: VITE_API_URL
-        value: https://nusawave-backend.onrender.com
+        value: https://nusawave-api.onrender.com
