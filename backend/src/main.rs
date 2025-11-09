@@ -4,7 +4,6 @@ pub mod utils;
 
 use actix_cors::Cors;
 use actix_web::{middleware::Logger, web, App, HttpServer};
-use nusawave_backend::connect_db;
 use routes::init_routes;
 use utils::logger::init;
 
