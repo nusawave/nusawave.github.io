@@ -1,5 +1,5 @@
 <template>
-    <header class="relative overflow-hidden bg-gradient-to-b from-blue-400/10 via-white/80 to-white/80 pt-20 sm:pt-32 sm:pb-24" id="home">
+    <header class="relative overflow-hidden bg-gradient-to-b from-blue-400/10 via-white/80 to-white/80 pt-16 sm:pt-32" id="home">
         <article class="max-w-screen-xl mx-auto px-4 sm:px-8 py-16 flex flex-col-reverse
         lg:flex-row items-center gap-10 lg:gap-20">
         <!-- Hero Content -->
