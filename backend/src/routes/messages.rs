@@ -1,20 +1,29 @@
 use actix_web::{get, HttpResponse, Responder};
-use std::fs;
+use std::fs::File;
+use std::io::{BufRead, BufReader};
+use crate::models::contact::ContactMessage;
 
 #[get("/api/messages")]
 pub async fn list_messages() -> impl Responder {
-    let file_path = "messages.log";
+    let file_path = "messages.jsonl";
 
-    match fs::read_to_string(file_path) {
-        Ok(contents) => {
-            let lines: Vec<_> = contents
-                .lines()
-                .filter(|l| !l.trim().is_empty())
-                .map(|l| serde_json::json!({ "entry": l }))
-                .collect();
-
-            HttpResponse::Ok().json(lines)
+    let file = match File::open(file_path) {
+        Ok(f) => f,
+        Err(_) => {
+            return HttpResponse::Ok().json(Vec::<ContactMessage>::new());
         }
-        Err(_) => HttpResponse::Ok().json(Vec::<String>::new()),
+    };
+
+    let reader = BufReader::new(file);
+    let mut messages = Vec::new();
+
+    for line in reader.lines() {
+        if let Ok(line) = line {
+            if let Ok(msg) = serde_json::from_str::<ContactMessage>(&line) {
+                messages.push(msg);
+            }
+        }
     }
+
+    HttpResponse::Ok().json(messages)
 }

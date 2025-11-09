@@ -1,7 +1,6 @@
 pub mod routes;
 pub mod models;
 pub mod utils;
-pub mod lib;
 
 use actix_cors::Cors;
 use actix_web::{middleware::Logger, App, HttpServer};
@@ -10,6 +9,7 @@ use utils::logger::init;
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
+    dotenvy::dotenv().ok();
     init();
 
     println!("🚀 Starting NusaWave API... (no database)");

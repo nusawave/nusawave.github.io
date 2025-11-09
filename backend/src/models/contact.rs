@@ -1,5 +1,4 @@
 use serde::{Deserialize, Serialize};
-use sqlx::FromRow;
 use chrono::{DateTime, Utc};
 
 #[derive(Deserialize)]
@@ -12,14 +11,13 @@ pub struct ContactForm {
     pub message: String,
 }
 
-#[derive(FromRow, Serialize)]
+#[derive(Serialize, Deserialize)]
 pub struct ContactMessage {
-    pub id: i32,
     pub name: String,
     pub email: String,
     pub phone: String,
     pub company: String,
     pub service: String,
     pub message: String,
-    pub created_at: Option<DateTime<Utc>>, // <- pakai Option di sini
+    pub created_at: DateTime<Utc>,
 }
