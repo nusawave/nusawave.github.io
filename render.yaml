@@ -21,7 +21,7 @@ services:
   # ===========================================
   # 🟩 FRONTEND (Vue + Vite)
   # ===========================================
-  - type: static
+  - type: web
     name: nusawave
     env: static
     buildCommand: npm install && npm run build
