@@ -3,7 +3,7 @@ services:
   # 🟦 BACKEND (Rust + Actix)
   # ===========================================
   - type: web
-    name: api.nusawave
+    name: nusawave-api
     env: rust
     rootDir: backend
     buildCommand: cargo build --release
