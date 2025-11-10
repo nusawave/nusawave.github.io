@@ -66,7 +66,7 @@
       </nav>
 
       <!-- Inquiry button (Desktop) -->
-      <div class="hidden md:block">
+      <!-- <div class="hidden md:block">
         <a
           href="#contact"
           class="bg-blue-900 text-white px-4 py-2 rounded-full hover:bg-blue-900 transition-colors duration-200 
@@ -74,7 +74,7 @@
         >
           Inquiry
         </a>
-      </div>
+      </div> -->
 
       <!-- Mobile Menu Button -->
       <button
@@ -164,30 +164,34 @@
 <script setup>
 import { ref } from 'vue'
 import { Icon } from '@iconify/vue'
+import { useRoute, useRouter } from 'vue-router'
+
+const router = useRouter()
+const route = useRoute()
 
 const navLinks = ref([
-  { href: '#home', label: 'Home' },
-  { href: '#about', label: 'About Us' },
+  { href: '/', label: 'Home', type: 'route' },
   {
-    href: '#services',
     label: 'Services',
+    type: 'anchor',
     children: [
-      { href: "#services", label: 'Sea State Monitoring', value: 'sea-state-monitoring' },
-      { href: "#services", label: 'Predictive Analytics', value: 'predictive-analytics-offshore-operations' },
-      { href: "#services", label: 'Custom Data Solutions', value: 'custom-data-solutions' },
-      { href: "#services", label: 'Nusawave Academy', value: 'nusawave-academy' },
+      { href: '/#services', label: 'Sea State Monitoring' },
+      { href: '/#services', label: 'Predictive Analytics' },
+      { href: '/#services', label: 'Custom Data Solutions' },
+      { href: '/#services', label: 'Nusawave Academy' },
     ],
   },
   {
-    href: '#outreach',
     label: 'Outreach',
+    type: 'anchor',
     children: [
-      { href: '#openlab', label: 'Nusawave Openlab' },
-      { href: '#forecast', label: 'Nusawave Forecast' },
+      { href: '/#outreach', label: 'Nusawave Openlab' },
+      { href: '/#outreach', label: 'Nusawave Forecast' },
     ],
   },
-  { href: '#blog', label: 'Blog' },
-  { href: '#get-in-touch', label: 'Contact' },
+  { href: '/#latest-blog', label: 'Blog', type: 'route' },
+  { href: '/#about', label: 'About Us', type: 'anchor' },
+  { href: '/#contact', label: 'Contact', type: 'anchor' },
 ])
 
 const isMenuOpen = ref(false)
@@ -211,6 +215,29 @@ function handleEnter(label) {
 function handleLeave() {
   hoverTimeout = setTimeout(() => {
     activeDropdown.value = null
-  }, 120) // sedikit delay agar lebih smooth saat keluar
+  }, 120)
+}
+
+// ✅ Unified navigation handler
+function navigate(href, type) {
+  isMenuOpen.value = false
+
+  if (type === 'route') {
+    router.push(href)
+  } else if (type === 'anchor') {
+    // If already on Home page, scroll smoothly
+    if (route.path === '/') {
+      const el = document.querySelector(href.replace('/#', '#'))
+      if (el) el.scrollIntoView({ behavior: 'smooth' })
+    } else {
+      // Navigate to Home then scroll after a tick
+      router.push('/').then(() => {
+        setTimeout(() => {
+          const el = document.querySelector(href.replace('/#', '#'))
+          if (el) el.scrollIntoView({ behavior: 'smooth' })
+        }, 600)
+      })
+    }
+  }
 }
 </script>
